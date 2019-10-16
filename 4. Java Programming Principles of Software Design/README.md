@@ -1,6 +1,6 @@
 # Principles of Software Design
 
-![logo]imgs/image.jpg)
+![logo](image.jpg)
 
 [Course Link](https://www.coursera.org/learn/java-programming?specialization=java-programming)
 
@@ -9,7 +9,7 @@
 
 This course is provided by Duke University
 
-![uni_logo](imgs/duke.png)
+![uni_logo](duke.png)
 
 After completing this course, you will be able to:
 1. Use sorting appropriately in solving problems;
