@@ -1,0 +1,24 @@
+canvas{
+  width : 200pt;
+  height : 100pt:
+  margin : 10px;
+  border : 1px solid lightgray;
+  
+}
+
+
+.orangeback{
+  background-color : orange;
+}
+
+.blueback{
+  background-color : blue;
+}
+
+.redback{
+  background-color : red;
+}
+
+.yellowback{
+  background-color : yellow;
+}

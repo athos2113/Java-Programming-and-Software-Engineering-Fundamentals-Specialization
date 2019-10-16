@@ -1,0 +1,87 @@
+//Hiding Images
+
+//The basic outline of the algorithm is:
+
+//For each pixel in the start image, replace each of its red, green, and blue values with the cleared pixel value (keep the 4 leftmost digits the same, replace the 4 rightmost with 0s). This is what the line start = chop2hide(start) does. The code for the chop2hide() function is shown in the video.
+//For each pixel in the hide image, replace each of its red, green, and blue values by moving the 4 leftmost digits to the right and replacing the 4 leftmost digits with 0s. This is what the line hide = shift(hide) does.
+//Calculate the pixel RGB values in the final image by adding the values of the pixels in the modified start and modified hide images. This is what the line var stego = combine(start,hide) does.
+
+//var start = new SimpleImage("usain.jpg");
+//var hide = new SimpleImage("skyline.jpg");
+
+//start = chop2hide(start);
+//hide = shift(hide);
+//var stego = combine(start,hide);
+//print(stego);
+
+
+//steganography
+
+function clearbits(colorval){
+    var x = Math.floor(colorval / 16) * 16;
+    return x;
+}
+
+
+function chop2hide(image){
+    for(var px of image.values()){
+        //clear the low bits of the red
+        px.setRed(clearbits(px.getRed()));
+        //clear the low bits of the green
+        px.setGreen(clearbits(px.getGreen()));
+        //clear the low bits of the blue
+        px.setBlue(clearbits(px.getBlue()));
+    }
+    //after doing each pixel return the image as answer
+    return image;
+    }
+    
+function shift(image){
+    for(var px of image.values()){
+        
+        //shift the red bits over
+        px.setRed(px.getRed() / 16);
+        //shift the green bits over
+        px.setGreen(px.getGreen() / 16);
+        //shift the blue bits over
+        px.setBlue(px.getBlue() / 16);
+    }
+    //after shifting each pixrl return the image as answer
+    return image;
+    }
+
+function combine(thisImage, hideImage){
+    //make a new image of the same dimension as thisImage (call it answer)
+    var answer = new SimpleImage(thisImage.getWidth(), thisImage.getHeight())
+    //for each pixel in answer
+    for(var px of answer.values()){
+        //get X and Y coordinate of each pixel
+        var ans_x = px.getX();
+        var ans_y = px.getY();
+        //get the pixel from the same coordinate from hideImage
+        var pix_hide = hideImage.getPixel(ans_x, ans_y);
+        //get the pixel from the same coordinate from thisImage
+        var pix_this = thisImage.getPixel(ans_x, ans_y);
+        
+        //set the red of px to the sum of pix_hide's red and pix_this's red
+        px.setRed(pix_hide.getRed() + pix_this.getRed());
+        //set the green of px to the sum of pix_hide's red and pix_this's green
+        px.setGreen(pix_hide.getGreen() + pix_this.getGreen());
+        //set the blue of px to the sum of pix_hide's red and pix_this's blue
+        px.setBlue(pix_hide.getBlue() + pix_this.getBlue());
+    }
+    //after doing each pixel,return ans answer of the image we called
+    return answer;
+    }
+    
+var this_ = new SimpleImage("usain.jpg");
+var hide = new SimpleImage("skyline.jpg");
+
+this_ = chop2hide(this_);
+hide = shift(hide);
+var stego = combine(this_ ,hide);
+
+print(this_);
+print(hide);
+print(stego);
+    

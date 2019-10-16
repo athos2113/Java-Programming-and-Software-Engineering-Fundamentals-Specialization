@@ -1,0 +1,26 @@
+// CROP Function
+
+function crop(image, width, height){
+    //Create new image answer with the given dimensions
+    var answer = new SimpleImage(width, height);
+    var image_x = image.getWidth();
+    var image_y = image.getHeight();
+    print(image);
+    print("The dimensions of the original picture is :" + image_x + " X" + image_y);
+    
+    //for each pixel of the answer image
+    for(var pixel of answer.values()){
+        var x = pixel.getX();
+        var y = pixel.getY();
+        
+        answer.setPixel(x,y, image.getPixel(x,y));
+    }
+     print("The dimensions of the new picture is :" + width + " X" + height);
+    return answer;
+   
+    
+}
+
+var temp  = new SimpleImage("usain.jpg");
+temp = crop(temp, 150,150);
+print(temp);

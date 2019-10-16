@@ -1,0 +1,25 @@
+body {
+  background-color: white;
+  margin: 30pt;
+}
+
+h1 {
+  background-color: SlateBlue;
+  border-style: double;
+  
+}
+
+h2 {
+  background-color: tomato;
+  border-style: dotted;
+}
+
+canvas {
+  border: 1pt solid dimgray;
+  height: 200px;
+}
+
+input {
+  font-size: 12pt;
+  
+}

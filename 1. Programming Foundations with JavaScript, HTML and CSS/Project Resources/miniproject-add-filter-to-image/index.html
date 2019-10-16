@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>MiniProject - Add Filter to Image</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js" >
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<h1><i class="fa fa-cloud"></i> Filter Fun <i class="fa fa-cloud"></i> </h1>
+
+<canvas id = "canvas1">
+</canvas>
+
+<p>
+<h2><b> <i class="fa fa-file"></i>   Load Image </b></h2>
+<input type = "file", multplie = "false", accept = "image/*", id = "finput", onChange = "loadImage()">
+
+
+
+
+<p>
+<h2><b><i class="fa fa-bars"></i>  Choose Filter </h2></b>
+<input type = "button", value = "Grayscale", onClick = "doGray()">
+
+<input type = "button", value = "Red", onClick = "doRed()">
+
+<input type = "button", value = "Sepia", onClick = "doSepia()">
+
+<p>
+  <input type = "button", value = "Reset Image", onClick = "doReset()">
+
+  <input type = "button", value = "Rainbow Image", onClick = "doRainbow()">
+  
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
